@@ -14,7 +14,7 @@ namespace SnakeAndLadder
         public const int Snake = 2;
         public const int Winning = 100;
         public const int Start = 0;
-        
+        public int Count = 0;
         public int StartingPlayerPosition = 0;
         Random random = new Random();
         public int DieRolling()
@@ -40,22 +40,23 @@ namespace SnakeAndLadder
                         {
                             this.StartingPlayerPosition -= dieRolling;
                         }
+                        Console.WriteLine("`~~~~~~~~~~~~~~~~~Got Ladder~~~~~~~~~~~~~~~\n");
                         break;
-
+                        
                     case Snake:
                         this.StartingPlayerPosition -= dieRolling;
                         if (this.StartingPlayerPosition < 0)
                         {
                             this.StartingPlayerPosition = Start;
                         }
-                       
+                        Console.WriteLine("`~~~~~~~~~~~~~~~~~Got Snake~~~~~~~~~~~~~~~\n");
                         break;
 
                 }
-               
+               Count++;
                 Console.WriteLine("The Position of Player is :" + this.StartingPlayerPosition + " " + "with a roll of " + dieRolling);
             }
-           
+            Console.WriteLine("The number of times dice was rolled to win the Game is : " + Count);
             Console.WriteLine("The Player wins the game");
         }
     }
